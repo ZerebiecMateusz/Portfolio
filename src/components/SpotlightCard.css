@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Zapobiega "pływaniu" strony na mobilkach i ukrywa scrollbary */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: #1A1A1A;
+}
+
+.spotlight-header {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.mask-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    /* Zrównane wartości dla obu silników przeglądarek */
+    mask-image: radial-gradient(var(--mask-size, 900px) circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 0%, transparent 100%);
+    -webkit-mask-image: radial-gradient(var(--mask-size, 900px) circle at var(--mouse-x, -1000px) var(--mouse-y, -1000px), black 0%, transparent 100%);
+    mask-repeat: no-repeat;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.mask-layer.dust {
+    --mask-size: 1100px; /* Szeroki zasięg kropek */
+    z-index: 1;
+}
+
+.mask-layer.network {
+    --mask-size: 350px; /* Wąski zasięg linii (konstelacji) */
+    z-index: 2;
+}
+
+#tsparticles {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    pointer-events: none;
+    font-family: 'Inter', sans-serif;
+    color: #F4F4F4;
+    filter: blur(var(--content-blur, 2px));
+    animation: clearBlur 1.5s ease-out forwards;
+    
+    /* Wymuszamy interpretację jako px i odwracamy ruch */
+    --x: calc(var(--text-move-x, 0px) * -1);
+    --y: calc(var(--text-move-y, 0px) * -1);
+    
+    transform: translate3d(var(--x), var(--y), 0);
+    
+    /* Płynność ruchu - bez tego tekst będzie skakać */
+    transition: transform 0.1s ease-out; 
+    
+    /* Zapobieganie "rozmywaniu" tekstu przy ruchu */
+    backface-visibility: hidden;
+    pointer-events: none;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 7vw, 5rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+}
+
+h1 span {
+    color: #fb3816;
+    /* Glow dopasowany do koloru imienia */
+    text-shadow: 0 0 30px rgba(251, 56, 22, 0.5);
+}
+
+p {
+    font-size: 1rem;
+    letter-spacing: 0.5rem; /* Zwiększony odstęp dla "luxury look" */
+    text-transform: uppercase;
+    font-weight: 300;
+    opacity: 0.6;
+    margin-top: 0.5rem;
+}
+@keyframes clearBlur {
+    to { filter: blur(0); }
+}
