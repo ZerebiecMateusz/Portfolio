@@ -28,6 +28,7 @@ const SpotlightCard = () => {
             ref={containerRef} 
             onMouseMove={handleMouseMove} 
             className="spotlight-header"
+            id="home"
         >
             <div className="mask-layer dust">
                 <ParticlesBackground showLinks={false} count={300} />
@@ -45,6 +46,10 @@ const SpotlightCard = () => {
     <div className="content"> {/* CSS zajmuje się paralaksą */}
         <h1>Hello, I'm <span>Mateusz</span>.</h1>
         <p>Frontend Developer</p>
+        <a href="#about" className='about-button'>
+            Explore
+            <span className="arrow">↓</span>
+        </a>
     </div>
 </motion.div> 
         </section>

@@ -1,0 +1,203 @@
+/* --- SEKCJA ABOUT (KONTENER) --- */
+.about {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    padding: 100px 10%;
+    background-color: #1A1A1A;
+    overflow: hidden;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.particles-full-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+.section__title, .about__content {
+    position: relative;
+    z-index: 10;
+}
+
+.section__title-main {
+    font-size: 1rem;
+    color: #fb3816;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.section__title-sub {
+    font-size: clamp(3rem, 6vw, 5rem);
+    font-weight: 800;
+    color: #F4F4F4;
+    margin-bottom: 40px;
+}
+
+.about__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.description__container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.description__about {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(244, 244, 244, 0.7);
+}
+
+.highlight {
+    color: #fb3816;
+    font-weight: 600;
+}
+
+.about_quote {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+    color: #fb3816;
+    border-left: 2px solid #fb3816;
+    padding-left: 20px;
+}
+
+/* --- ORBITA I IKONY (AUTOMATYKA) --- */
+.about__image-wrapper {
+    position: relative;
+    width: 500px; 
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about__gif {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 5;
+    border: 2px solid rgba(251, 56, 22, 0.2);
+    filter: grayscale(100%);
+    transition: 0.5s ease;
+}
+
+.about__image-wrapper:hover .about__gif {
+    filter: grayscale(0%);
+}
+
+.tech-orbit {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: orbit-rotate 30s linear infinite;
+    will-change: transform;
+    --radius: 210px; /* Tutaj zmieniasz promień całej orbity */
+}
+
+/* Zatrzymanie ruchu po najechaniu myszką */
+.about__image-wrapper:hover .tech-orbit {
+    animation-play-state: paused;
+}
+.about__image-wrapper:hover .orbit-icon {
+    animation-play-state: paused;
+}
+
+.orbit-icon {
+    position: absolute;
+    top: 50% !important;
+    left: 50% !important;
+    width: 50px;
+    height: 50px;
+    margin-top: -25px; /* połowa wysokości */
+    margin-left: -25px; /* połowa szerokości */
+    background: rgba(26, 26, 26, 0.9);
+    border: 1px solid rgba(251, 56, 22, 0.4);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 15px rgba(251, 56, 22, 0.1);
+    transition: all 0.3s ease;
+    will-change: transform;
+
+    /* MAGIA: Obliczanie pozycji na podstawie zmiennych z Reacta */
+    --angle: calc(360deg / var(--total) * var(--i));
+    transform: rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle)));
+    /* Musi mieć ten sam czas (30s) i ten sam timing (linear), ale kierunek 'reverse' */
+    animation: counter-rotate 30s linear infinite;
+}
+
+/* Obsługa Hovera przy animacji */
+.orbit-icon:hover {
+    border-color: #fb3816;
+    box-shadow: 0 0 20px rgba(251, 56, 22, 0.4);
+    /* Przy pauzie animacji scale(1.2) zadziała płynnie */
+    scale: 1.05;
+    z-index: 20;
+}
+
+.orbit-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* --- ANIMACJE --- */
+
+@keyframes counter-rotate {
+    from {
+        transform: 
+            rotate(var(--angle)) 
+            translateY(calc(-1 * var(--radius))) 
+            rotate(calc(-1 * var(--angle) - 0deg));
+    }
+    to {
+        transform: 
+            rotate(var(--angle)) 
+            translateY(calc(-1 * var(--radius))) 
+            rotate(calc(-1 * var(--angle) - 360deg));
+    }
+}
+
+@keyframes orbit-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* --- RESPONSYWNOŚĆ --- */
+@media (max-width: 1100px) {
+    .about__content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 120px;
+    }
+    .about__image-wrapper {
+        width: 350px;
+        height: 350px;
+        margin: 0 auto;
+    }
+    .tech-orbit {
+        --radius: 160px; /* Mniejsza orbita na tabletach */
+    }
+    .about__gif {
+        width: 200px;
+        height: 200px;
+    }
+    .orbit-icon {
+        width: 40px;
+        height: 40px;
+        margin-top: -20px;
+        margin-left: -20px;
+    }
+}

@@ -16,6 +16,8 @@ html, body {
     position: relative;
     width: 100vw;
     height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -96,6 +98,41 @@ p {
     opacity: 0.6;
     margin-top: 0.5rem;
 }
+
+.about-button {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 12px 70px;
+    background: transparent;
+    border: 3px solid rgba(251, 251, 251, 0.51); /* Bardzo delikatna ramka */
+    color: #F4F4F4;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto; /* To pozwala na kliknięcie mimo pointer-events: none na .content */
+    cursor: pointer;
+}
+
+.about-button:hover {
+    border-color: #fb3816;
+    color: #fb3816;
+    background: rgba(251, 56, 22, 0.05); /* Delikatna poświata tła przycisku */
+    letter-spacing: 0.8rem; /* Lekkie rozszerzenie liter przy najechaniu */
+}
+
+.arrow {
+    margin-left: 12px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.about-button:hover .arrow {
+    transform: translateY(4px);
+}
+
 @keyframes clearBlur {
     to { filter: blur(0); }
 }

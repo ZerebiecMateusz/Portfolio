@@ -1,0 +1,74 @@
+/* --- NAWIGACJA (HEADER) --- */
+header {
+    box-sizing: border-box;
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    z-index: 9999;
+    
+    /* Wygląd */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10%;
+    background: rgba(26, 26, 26, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    
+    /* Płynność przejścia między ukrytym a widocznym */
+    transition: all 0.4s ease-in-out;
+}
+
+/* Stan: Ukryty (gdy aktywna jest sekcja HOME) */
+header.header--hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    pointer-events: none; /* Wyłącza klikalność linków gdy są niewidoczne */
+}
+
+/* Stan: Widoczny (gdy aktywna jest każda inna sekcja) */
+header.header--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: all;
+}
+
+/* Elementy wewnętrzne */
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu__link {
+    color: #F4F4F4;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.menu__link.active,
+.menu__link:hover {
+    opacity: 1;
+    color: #fb3816;
+}
+
+.burger {
+    display: none;
+}

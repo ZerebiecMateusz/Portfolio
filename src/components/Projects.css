@@ -1,0 +1,12 @@
+.projects {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centruje zawartość w poziomie */
+    justify-content: flex-start;
+    padding: 100px 10% 40px; /* Padding-top na header + 10% na boki */
+    box-sizing: border-box; /* Kluczowe: padding nie rozpycha sekcji */
+    position: relative;
+    background-color: #1A1A1A;
+}

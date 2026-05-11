@@ -4,11 +4,12 @@ import { loadSlim } from "@tsparticles/slim";
 
 // Definiujemy typy dla propsów
 interface ParticlesProps {
+  id?: string; // dodaj opcjonalne ID
   showLinks: boolean;
   count: number;
 }
 
-const ParticlesBackground = ({ showLinks, count }: ParticlesProps) => {
+const ParticlesBackground = ({ id, showLinks, count }: ParticlesProps) => {
   const [init, setInit] = useState(false);
 
   useEffect(() => {
@@ -20,10 +21,13 @@ const ParticlesBackground = ({ showLinks, count }: ParticlesProps) => {
   }, []);
 
   if (!init) return null;
+  // Tworzymy unikalne ID: jeśli props 'id' istnieje, użyj go. 
+  // Jeśli nie, stwórz domyślne na podstawie typu (dust/network).
+  const finalId = id || (showLinks ? "particles-network" : "particles-dust");
 
   return (
     <Particles
-      id={showLinks ? "particles-network" : "particles-dust"} // Unikalne ID dla każdej warstwy
+      id={finalId} // Używamy przeliczonego, unikalnego ID
       options={{
         background: { color: { value: "transparent" } },
         fpsLimit: 120,
