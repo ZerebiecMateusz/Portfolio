@@ -3,10 +3,187 @@
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centruje zawartość w poziomie */
-    justify-content: flex-start;
-    padding: 100px 10% 40px; /* Padding-top na header + 10% na boki */
-    box-sizing: border-box; /* Kluczowe: padding nie rozpycha sekcji */
+    align-items: center;
+    padding: 100px 10% 40px;
+    box-sizing: border-box;
     position: relative;
     background-color: #1A1A1A;
+}
+
+/* Tytuły */
+.section__title {
+    text-align: center;
+    margin: 2rem auto;
+    position: relative;
+    width: max-content;
+}
+
+.section__title-main {
+    background: var(--secondary);
+    font-size: 2.0rem;
+    color: var(--White);
+    padding: 0.4rem;
+    border-top-left-radius: 1rem;
+    display: inline-block;
+}
+
+.section__title-sub {
+    color: var(--textColor);
+    font-size: 2.8rem;
+    font-weight: bold;
+}
+
+/* Dekoracyjny kwadrat z animacją */
+.section__title-main::after {
+    content: '';
+    height: 1.2rem;
+    width: 1.2rem;
+    position: absolute;
+    bottom: -1.5rem;
+    right: -1.5rem;
+    background: var(--secondary);
+    border-bottom-right-radius: 0.5rem;
+    animation: squareShadow 1s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes squareShadow {
+    from { box-shadow: var(--shadowAnimationStart); }
+    to { box-shadow: var(--shadowAnimationEnd); }
+}
+
+/* Makieta i Video */
+.browser-mockup {
+    width: 100%; /* Zmieniono z 80% na 100% kontenera dla lepszej kontroli */
+    max-width: 1000px;
+    background: #222;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    margin: 20px auto;
+}
+
+.browser-header {
+    height: 25px;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    gap: 6px;
+}
+
+.dot { width: 8px; height: 8px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.project__video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+/* Typografia i Linki */
+.project__name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #F4F4F4;
+    letter-spacing: -0.5px;
+    margin-bottom: 5px;
+    opacity: 0.6;
+}
+
+.project__description {
+    font-size: 1rem;
+    color: rgba(244, 244, 244, 0.7);
+    line-height: 1.7;
+    margin: 15px 0;
+    max-width: 600px;
+}
+
+.project__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--textColor);
+    font-weight: 600;
+    font-size: 1.8rem;
+    transition: 0.3s;
+}
+
+.project__link:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+.code-icon {
+    width: 30px; 
+    height: auto;
+}
+
+.featured__label {
+    color: var(--textColor);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.featured__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(2rem, 5vw, 5rem);
+    padding: 60px 0;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* Kontener dla telefonu, który ma Tilt 3D */
+.featured__mockup {
+    position: relative;
+    width: clamp(280px, 30vw, 320px); /* Elastyczna szerokość telefonu */
+    aspect-ratio: 9 / 19; /* Standardowe proporcje ekranu smartfona (iPhone) */
+    transform-style: preserve-3d; /* Ważne dla płynnego efektu Tilt */
+    will-change: transform;
+    transition: transform 0.1s ease-out; /* "Maślany" ruch */
+}
+
+/* Sztywna ramka telefonu (czarny plastik) */
+.phone-frame {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: clamp(30px, 4vw, 40px); /* Dopasowane zaokrąglenie */
+    border: clamp(8px, 1.5vw, 12px) solid #222; /* Grubość ramki */
+    overflow: hidden; /* Kluczowe: chowa wszystko, co wystaje poza ramkę */
+    box-shadow: 0 50px 100px rgba(0,0,0,0.5);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.phone-video {
+    width: 100%;    /* Zajmij pełną szerokość ramki */
+    height: 100%;   /* Zajmij pełną wysokość ramki */
+    
+    /* TO ROZWIĄZUJE PROBLEM UCINANIA */
+    object-fit: cover; /* Wideo wypełni całą ramkę, zachowując proporcje */
+    /* ALTERNATYWA:object-fit: contain; // Jeśli wolisz paski po bokach, ale całe wideo widoczne */
+    
+    display: block;
+    position: absolute; /* Gwarantuje idealne wyśrodkowanie */
+    top: 0;
+    left: 0;
+}
+
+@media (max-width: 768px) {
+    .featured__container {
+        flex-direction: column;
+        text-align: center;
+    }
 }

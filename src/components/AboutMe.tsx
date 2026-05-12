@@ -20,7 +20,6 @@ const AboutMe = () => {
     return ( 
         <>
             <div id="about-container">
-                // About me section
                 <article className="about" id="about">
                     <div className="particles-full-bg">
                     <ParticlesBackground id="particles-about-section" showLinks={false} count={150} />

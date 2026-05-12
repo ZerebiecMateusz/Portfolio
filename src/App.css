@@ -1,5 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 /* Kontener nadrzędny dla wszystkich sekcji (np. body lub główny div w App.tsx) */
+:root {
+  /* Colors */
+  --White: #fff;
+  --DarkWhiteBcg: #fafafa;
+  --main: linear-gradient(to left bottom, #7d62f2, #a757ac);
+  --secondary: linear-gradient(to right bottom, #fb3816, #e51b97, #c830b3);
+  
+  --textColor: #fb3816;
+  --textLightColor: #6d6d6d;
+  --textColorHover: #26224b;
+
+  /* Hovers */
+  --mainHover: linear-gradient(to left bottom, #9e8fdc, #b570b9);
+  --secondaryHover: linear-gradient(to right bottom, 
+    rgba(252, 52, 34, 0.8), 
+    rgba(213, 23, 188, 0.8)
+  );
+
+  /* Shadows */
+  --shadow: rgba(0, 0, 0, 0.06) 0px 3px 5px;
+  --shadowHover: rgba(143, 143, 143, 0.2) 0px 5px 15px;
+
+  /* Animation states */
+  --shadowAnimationStart: 
+    rgba(240, 46, 170, 0.4) 0px 0px,
+    rgba(240, 46, 170, 0.1) 0px 0px;
+  --shadowAnimationEnd: 
+    rgba(240, 46, 170, 0.4) 5px 5px,
+    rgba(240, 46, 170, 0.1) 25px 25px;
+}
 html, body {
     margin: 0;
     padding: 0;
@@ -63,7 +93,7 @@ h1 span {
     width: 100%;
     overflow-x: hidden;
     overflow-y: scroll;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y proximity;
     scroll-behavior: smooth;
 }
 
