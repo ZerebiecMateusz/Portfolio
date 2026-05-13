@@ -176,28 +176,45 @@
 }
 
 /* --- RESPONSYWNOŚĆ --- */
-@media (max-width: 1100px) {
+@media (max-width: 768px) {
+    .about {
+        /* Kluczowa zmiana: height: 100vh na min-height */
+        height: auto; 
+        min-height: 100vh; 
+        
+        /* Dodaj padding na dole, żeby odseparować sekcje */
+        padding-bottom: 100px; 
+        
+        /* Wyłączamy ukrywanie treści, która wystaje */
+        overflow: visible; 
+    }
     .about__content {
-        grid-template-columns: 1fr;
+        display: flex;
+        height: auto;
+        flex-direction: column; /* Tekst nad orbitą */
+        align-items: center;
+        gap: 40px; /* Mniejszy odstęp między tekstem a orbitą */
         text-align: center;
-        gap: 120px;
     }
+
+    .description__about {
+        width: 100%;
+        padding: 0 10px;
+        font-size: 0.85rem; /* Nieco mniejszy font, by zmieścić więcej treści */
+        line-height: 1.6;
+    }
+
     .about__image-wrapper {
-        width: 350px;
-        height: 350px;
-        margin: 0 auto;
-    }
-    .tech-orbit {
-        --radius: 160px; /* Mniejsza orbita na tabletach */
+        width: 250px;
+        height: 250px;
+        transform: scale(0.9);
     }
     .about__gif {
-        width: 200px;
-        height: 200px;
+        width: 160px;
+        height: 160px;
     }
-    .orbit-icon {
-        width: 40px;
-        height: 40px;
-        margin-top: -20px;
-        margin-left: -20px;
+
+    .tech-orbit {
+        --radius: 130px; /* Kluczowe: mniejszy promień zapobiega ucinaniu ikon */
     }
 }

@@ -136,3 +136,49 @@ p {
 @keyframes clearBlur {
     to { filter: blur(0); }
 }
+@media (max-width: 768px) {
+  /* Zmniejszamy odstępy, żeby tekst nie wychodził poza ekran */
+  h1 {
+    font-size: 2.2rem;
+    padding: 0 10px;
+  }
+
+  p {
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem; /* Zmniejszony odstęp na mobile dla czytelności */
+    opacity: 0.8;
+  }
+
+  /* Naprawa przycisku - na screenie widać, że jest za szeroki */
+  .about-button {
+    padding: 12px 0; /* Usuwamy sztywny padding boczny */
+    width: 80%;      /* Przycisk zajmie 80% szerokości ekranu */
+    justify-content: center;
+    letter-spacing: 0.3rem;
+  }
+
+  .about-button:hover {
+    letter-spacing: 0.4rem; /* Mniejszy skok na mobile */
+  }
+
+  /* Mniejsza maska "latarki" dla urządzeń dotykowych */
+  .mask-layer.network {
+    --mask-size: 250px; 
+  }
+  
+  .mask-layer.dust {
+    --mask-size: 600px;
+  }
+}
+
+/* Specyficzna poprawka dla bardzo wąskich telefonów (jak na screenie) */
+@media (max-width: 350px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  
+  .about-button {
+    font-size: 0.9rem;
+    letter-spacing: 0.2rem;
+  }
+}
