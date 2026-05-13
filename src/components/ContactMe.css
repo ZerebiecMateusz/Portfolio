@@ -1,0 +1,82 @@
+#contact {
+    padding: 100px 10%;
+}
+.contact__form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.contact__form-field {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.contact__form-field label {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+    letter-spacing: 0.5rem;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+.contact__form-field input, 
+.contact__form-field textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    width: 100%;
+    box-sizing: border-box; /* Ważne przy width: 100% */
+}
+.contact__form-btn {
+    align-items: center;
+    margin-top: 2rem;
+    padding: 12px 70px;
+    background: transparent;
+    border: 3px solid rgba(251, 251, 251, 0.51); /* Bardzo delikatna ramka */
+    color: #F4F4F4;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: auto; /* To pozwala na kliknięcie mimo pointer-events: none na .content */
+    cursor: pointer;
+}
+.contact img {
+    display: none;
+    width: 40%;
+}
+.contact__form-btn:hover {
+    border-color: #fb3816;
+    color: #fb3816;
+    background: rgba(251, 56, 22, 0.05); /* Delikatna poświata tła przycisku */
+    letter-spacing: 0.8rem; /* Lekkie rozszerzenie liter przy najechaniu */
+}
+@media screen and (min-width: 900px) {
+    .contact__form {
+        width: 50%;
+    }
+}
+@media screen and (min-width: 1024px) {
+    .contact__form {
+        width: 40%;
+    }
+    .contact img {
+        display: block;
+    }
+}
+@media screen and (min-width: 1424px) {
+    .contact {
+        width: 70%;
+    }
+    .contact__form {
+        width: 30%;
+    }
+}

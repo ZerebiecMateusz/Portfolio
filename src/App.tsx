@@ -3,6 +3,7 @@ import SpotlightCard from './components/SpotlightCard'
 import AboutMe from './components/AboutMe'
 import Projects from './components/Projects'
 import Header from './components/Header'
+import ContactMe from './components/ContactMe'
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
       <SpotlightCard /> {/* id="home" */}
       <AboutMe />       {/* id="about" */}
       <Projects />      {/* id="projects" */}
-      {/* kolejne sekcje */}
+      <ContactMe />     {/* id="contact" */}
     </div>
   )
 }

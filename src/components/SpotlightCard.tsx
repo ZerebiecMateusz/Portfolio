@@ -1,10 +1,26 @@
 import './SpotlightCard.css';
 import ParticlesBackground from './ParticlesBackground';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const SpotlightCard = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        if (containerRef.current) {
+            const rect = containerRef.current.getBoundingClientRect();
+            // Ustawiamy "latarkę" na środku ekranu przy starcie
+            const initialX = rect.width / 2;
+            const initialY = rect.height / 2;
+
+            containerRef.current.style.setProperty('--mouse-x', `${initialX}px`);
+            containerRef.current.style.setProperty('--mouse-y', `${initialY}px`);
+            
+            // Opcjonalnie: zerujemy paralaksę na starcie
+            containerRef.current.style.setProperty('--text-move-x', `0px`);
+            containerRef.current.style.setProperty('--text-move-y', `0px`);
+        }
+        }, []);
 
     const handleMouseMove = (e: React.MouseEvent) => {
         if (!containerRef.current) return;

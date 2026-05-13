@@ -1,6 +1,7 @@
 import './Projects.css';
 import UERVideo from '../assets/videos/uer-desktop.mp4?url';
 import mobileApp from '../assets/videos/MobileMovieApp.mp4?url';
+import ToDoApp from '../assets/images/ToDoApp.png';
 import code from '../assets/images/code.svg';
 import { useEffect } from 'react';
 
@@ -62,6 +63,10 @@ const Projects = () => {
                             <a href="https://uerinternationale.netlify.app/" target="_blank" rel="noreferrer" className="project__link">
                                 <span>Live App</span>
                                 <img src={code} alt="code icon" className="code-icon" />
+                            </a><br />
+                            <a href="https://github.com/ZerebiecMateusz/UER.git" target="_blank" rel="noreferrer" className="project__link">
+                                <span>GitHub</span>
+                                <img src={code} alt="code icon" className="code-icon" />
                             </a>
                         </div>
                     </div>
@@ -85,7 +90,7 @@ const Projects = () => {
                             <span className="featured__label">Featured Project</span>
                             <h3 className="project__name">Movie Mobile App</h3>
                             <div className="project__links">
-                                <a href="#" className="project__link">
+                                <a href="https://github.com/ZerebiecMateusz/mobile_movie_app.git" target="_blank" rel="noreferrer" className="project__link">
                                     <span>GitHub</span>
                                     <img src={code} alt="code icon" className="code-icon" />
                                 </a>
@@ -97,26 +102,29 @@ const Projects = () => {
                     </div>
                 </div>
                 <div className="project__content-card" id="todo-project">
-                    <div className="todo-preview-container">
-                        {/* Tu możemy dać statyczny screen lub bardzo krótkie wideo */}
-                        <div className="todo-mockup">
-                            <div className="todo-header-dot"></div>
-                            <div className="todo-list-item"><span>Done</span></div>
-                            <div className="todo-list-item"><span>In Progress</span></div>
+                    <div className="todo-preview">
+                        <div className="todo-glass-card">
+                            <a href="https://taskmastertodolist.netlify.app/" target="_blank" rel="noreferrer" className="project__link"><img src={ToDoApp} alt="ToDo App Preview" /></a>
+                            
                         </div>
                     </div>
+                    
                     <div className="project__info">
                         <p className="project__name">React Task Manager</p>
                         <div className="project__links">
-                            <a href="#" className="project__link">
+                            <a href="https://taskmastertodolist.netlify.app/" target="_blank" rel="noreferrer" className="project__link">
+                                <span>Live App</span>
+                                <img src={code} alt="code icon" className="code-icon" />
+                            </a> <br />
+                            <a href="https://github.com/ZerebiecMateusz/ToDo-List.git" target="_blank" rel="noreferrer" className="project__link">
                                 <span>GitHub</span>
                                 <img src={code} alt="code icon" className="code-icon" />
                             </a>
                         </div>
-                    </div>
-                    <p className="project__description">
-                        Minimalistyczna aplikacja do zarządzania zadaniami z wykorzystaniem Local Storage i customowych hooków.
+                        <p className="project__description">
+                        Lekka aplikacja do zarządzania codziennymi zadaniami. Skupienie na czystym UI, responsywności i zarządzaniu stanem w React.
                     </p>
+                    </div>
                 </div>
             </div>
         </section>
