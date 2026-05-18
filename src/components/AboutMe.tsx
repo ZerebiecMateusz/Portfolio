@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import './AboutMe.css'
 import ParticlesBackground from './ParticlesBackground';
 import HeroGif from '../assets/images/AboutHero.gif'; // Importujemy gif do sekcji "About me"

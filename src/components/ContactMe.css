@@ -32,21 +32,21 @@
     padding: 12px;
     border-radius: 8px;
     width: 100%;
-    box-sizing: border-box; /* Ważne przy width: 100% */
+    box-sizing: border-box;
 }
 .contact__form-btn {
     align-items: center;
     margin-top: 2rem;
     padding: 12px 70px;
     background: transparent;
-    border: 3px solid rgba(251, 251, 251, 0.51); /* Bardzo delikatna ramka */
+    border: 3px solid rgba(251, 251, 251, 0.51);
     color: #F4F4F4;
     text-decoration: none;
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.5rem;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    pointer-events: auto; /* To pozwala na kliknięcie mimo pointer-events: none na .content */
+    pointer-events: auto;
     cursor: pointer;
 }
 .contact img {
@@ -56,8 +56,8 @@
 .contact__form-btn:hover {
     border-color: #fb3816;
     color: #fb3816;
-    background: rgba(251, 56, 22, 0.05); /* Delikatna poświata tła przycisku */
-    letter-spacing: 0.8rem; /* Lekkie rozszerzenie liter przy najechaniu */
+    background: rgba(251, 56, 22, 0.05);
+    letter-spacing: 0.8rem;
 }
 @media screen and (min-width: 900px) {
     .contact__form {

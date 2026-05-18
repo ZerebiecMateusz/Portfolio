@@ -34,22 +34,21 @@ html, body {
     margin: 0;
     padding: 0;
     height: 100%;
-    /* Włącza mechanizm przyciągania w pionie */
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     overflow-y: scroll;
     html, body {
-    overflow-x: hidden; /* Blokuje przesuwanie na boki na poziomie całej strony */
+    overflow-x: hidden; 
 }
 }
 
 /* Każda sekcja, która ma być "slajdem" */
  article #about, section #contact {
-    height: 100vh; /* Muszą zajmować pełną wysokość ekranu */
+    height: 100vh;
     width: 100%;
     /* Punkt, w którym sekcja ma się "zatrzasnąć" */
     scroll-snap-align: start;
-    scroll-snap-stop: always; /* Wymusza zatrzymanie na każdej sekcji */
+    scroll-snap-stop: always; 
 }
 
 body {
@@ -70,7 +69,7 @@ body {
 }
 
 h1 {
-    font-size: 3.5rem; /* Większy, bardziej "hero" rozmiar */
+    font-size: 3.5rem; 
     font-weight: 700;
     margin-bottom: 0.5rem;
     line-height: 1.1;
@@ -78,16 +77,16 @@ h1 {
 
 h1 span {
     color: #fb3816;
-    font-weight: 800; /* Możesz lekko pogrubić samo imię dla kontrastu */
+    font-weight: 800; 
 }
 
-/* Jeśli dodasz paragraf pod spodem (zawód) */
+
 .spotlight-header p {
     font-size: 1.5rem;
     color: #A0A0A0; /* Przygaszony kolor dla mniejszej ważności */
     margin-top: 0;
 }
-/* Plik App.css lub index.css */
+
 .main-container {
     height: 100vh;
     width: 100%;
@@ -97,7 +96,7 @@ h1 span {
     scroll-behavior: smooth;
 }
 
-/* Każda sekcja wewnątrz musi mieć: */
+
 .spotlight-header, .about, #contact {
     height: 100vh;
     width: 100%;

@@ -33,7 +33,7 @@ const SpotlightCard = () => {
         containerRef.current.style.setProperty('--mouse-y', `${y}px`);
 
         // Paralaksa dla tekstu (lekki ruch w przeciwną stronę niż myszka)
-        const moveX = (x - rect.width / 2) / 50; // 30 to siła oporu (im więcej, tym lżej się rusza)
+        const moveX = (x - rect.width / 2) / 50; // 30 to siła oporu 
         const moveY = (y - rect.height / 2) / 50;
         containerRef.current.style.setProperty('--text-move-x', `${moveX}px`);
         containerRef.current.style.setProperty('--text-move-y', `${moveY}px`);
@@ -59,7 +59,7 @@ const SpotlightCard = () => {
     animate={{ opacity: 1 }}
     transition={{ duration: 1 }}
 >
-    <div className="content"> {/* CSS zajmuje się paralaksą */}
+    <div className="content">
         <h1>Hello, I'm <span>Mateusz</span>.</h1>
         <p>Frontend Developer</p>
         <a href="#about" className='about-button'>

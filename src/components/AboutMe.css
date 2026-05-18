@@ -70,7 +70,6 @@
     padding-left: 20px;
 }
 
-/* --- ORBITA I IKONY (AUTOMATYKA) --- */
 .about__image-wrapper {
     position: relative;
     width: 500px; 
@@ -101,10 +100,9 @@
     height: 100%;
     animation: orbit-rotate 30s linear infinite;
     will-change: transform;
-    --radius: 210px; /* Tutaj zmieniasz promień całej orbity */
+    --radius: 210px; /* promień całej orbity */
 }
 
-/* Zatrzymanie ruchu po najechaniu myszką */
 .about__image-wrapper:hover .tech-orbit {
     animation-play-state: paused;
 }
@@ -132,7 +130,7 @@
     transition: all 0.3s ease;
     will-change: transform;
 
-    /* MAGIA: Obliczanie pozycji na podstawie zmiennych z Reacta */
+    /* Obliczanie pozycji na podstawie zmiennych z Reacta */
     --angle: calc(360deg / var(--total) * var(--i));
     transform: rotate(var(--angle)) translateY(calc(-1 * var(--radius))) rotate(calc(-1 * var(--angle)));
     /* Musi mieć ten sam czas (30s) i ten sam timing (linear), ale kierunek 'reverse' */
@@ -178,29 +176,24 @@
 /* --- RESPONSYWNOŚĆ --- */
 @media (max-width: 768px) {
     .about {
-        /* Kluczowa zmiana: height: 100vh na min-height */
         height: auto; 
         min-height: 100vh; 
-        
-        /* Dodaj padding na dole, żeby odseparować sekcje */
-        padding-bottom: 100px; 
-        
-        /* Wyłączamy ukrywanie treści, która wystaje */
+        padding: 100px 30px 0 30px;
         overflow: visible; 
     }
     .about__content {
         display: flex;
         height: auto;
-        flex-direction: column; /* Tekst nad orbitą */
+        flex-direction: column;
         align-items: center;
-        gap: 40px; /* Mniejszy odstęp między tekstem a orbitą */
+        gap: 40px;
         text-align: center;
     }
 
     .description__about {
         width: 100%;
         padding: 0 10px;
-        font-size: 0.85rem; /* Nieco mniejszy font, by zmieścić więcej treści */
+        font-size: 0.85rem;
         line-height: 1.6;
     }
 
@@ -215,6 +208,6 @@
     }
 
     .tech-orbit {
-        --radius: 130px; /* Kluczowe: mniejszy promień zapobiega ucinaniu ikon */
+        --radius: 130px;
     }
 }

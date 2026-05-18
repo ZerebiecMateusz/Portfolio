@@ -34,7 +34,7 @@
     font-weight: bold;
 }
 
-/* Dekoracyjny kwadrat z animacją */
+
 .section__title-main::after {
     content: '';
     height: 1.2rem;
@@ -54,7 +54,7 @@
 
 /* Makieta i Video */
 .browser-mockup {
-    width: 100%; /* Zmieniono z 80% na 100% kontenera dla lepszej kontroli */
+    width: 100%;
     max-width: 1000px;
     background: #222;
     border-radius: 12px;
@@ -93,6 +93,7 @@
     letter-spacing: -0.5px;
     margin-bottom: 5px;
     opacity: 0.6;
+    text-transform: uppercase;
 }
 
 .project__description {
@@ -144,24 +145,24 @@
     max-width: 1100px;
 }
 
-/* Kontener dla telefonu, który ma Tilt 3D */
+
 .featured__mockup {
     position: relative;
-    width: clamp(280px, 30vw, 320px); /* Elastyczna szerokość telefonu */
-    aspect-ratio: 9 / 19; /* Standardowe proporcje ekranu smartfona (iPhone) */
-    transform-style: preserve-3d; /* Ważne dla płynnego efektu Tilt */
+    width: clamp(280px, 30vw, 320px); 
+    aspect-ratio: 9 / 19; 
+    transform-style: preserve-3d; 
     will-change: transform;
-    transition: transform 0.1s ease-out; /* "Maślany" ruch */
+    transition: transform 0.1s ease-out; 
 }
 
-/* Sztywna ramka telefonu (czarny plastik) */
+
 .phone-frame {
     width: 100%;
     height: 100%;
     background: #000;
-    border-radius: clamp(30px, 4vw, 40px); /* Dopasowane zaokrąglenie */
-    border: clamp(8px, 1.5vw, 12px) solid #222; /* Grubość ramki */
-    overflow: hidden; /* Kluczowe: chowa wszystko, co wystaje poza ramkę */
+    border-radius: clamp(30px, 4vw, 40px);
+    border: clamp(8px, 1.5vw, 12px) solid #222;
+    overflow: hidden; 
     box-shadow: 0 50px 100px rgba(0,0,0,0.5);
     position: relative;
     display: flex;
@@ -169,25 +170,37 @@
     align-items: center;
 }
 .phone-video {
-    width: 100%;    /* Zajmij pełną szerokość ramki */
-    height: 100%;   /* Zajmij pełną wysokość ramki */
+    width: 100%;    
+    height: 100%;  
     
-    /* TO ROZWIĄZUJE PROBLEM UCINANIA */
-    object-fit: cover; /* Wideo wypełni całą ramkę, zachowując proporcje */
-    /* ALTERNATYWA:object-fit: contain; // Jeśli wolisz paski po bokach, ale całe wideo widoczne */
+
+    object-fit: cover; 
+
     
     display: block;
-    position: absolute; /* Gwarantuje idealne wyśrodkowanie */
+    position: absolute; 
     top: 0;
     left: 0;
 }
 
-@media (max-width: 768px) {
-    .featured__container {
-        flex-direction: column;
-        text-align: center;
-    }
+
+.project__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
+
+.mock-item {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    margin: 10px 0;
+    border-radius: 4px;
+    position: relative;
+}
+
+.mock-item.done { border-left: 3px solid #27c93f; }
+.mock-item.active { border-left: 3px solid var(--textColor); }
+
 #todo-project {
     width: 100%;
     display: flex;
@@ -208,26 +221,60 @@
     width: 100%;
 }
 
-.project__info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-.mock-item {
-    height: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    margin: 10px 0;
-    border-radius: 4px;
-    position: relative;
-}
-
-.mock-item.done { border-left: 3px solid #27c93f; }
-.mock-item.active { border-left: 3px solid var(--textColor); }
-
-/* Hover efekt dla całej karty */
 .todo-glass-card:hover {
     transform: scale(0.95);
     border-color: var(--textColor);
     transition: 0.3s ease;
+}
+
+@media (max-width: 768px) {
+
+    #uer-project {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .project__info {
+        order: 3;
+    }
+    .project__name {
+        font-size: 1.5rem;
+    }
+    .project__link {
+        font-size: 1.2rem;
+    }
+    br {
+        display: none;
+    }
+    .featured__container {
+        flex-direction: column-reverse;
+    }
+    #todo-project {
+        flex-direction: column-reverse;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .project__title {
+        margin-bottom: 20px;
+        font-size: 1.0rem; 
+        line-height: 1.2;
+    }
+
+
+    .project__links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+
+    .project__description {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: #ccc;
+        margin-top: 10px;
+    }
+
 }

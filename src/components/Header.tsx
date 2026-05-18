@@ -5,6 +5,7 @@ import './Header.css';
 const Header = () => {
 
     const [activeSection, setActiveSection] = useState('home');
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     useEffect(() => {
         const observerOptions = {
@@ -30,12 +31,17 @@ const Header = () => {
         return () => observer.disconnect();
     }, []);
 
+    // Przełączanie stanu menu
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     // Funkcja do płynnego przewijania po kliknięciu
     const scrollToSection = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+            setIsMenuOpen(false); 
         }
     };
     return ( 
@@ -43,7 +49,7 @@ const Header = () => {
                     <div className="logo">
                         <img src={logoImg} alt="logo" />
                     </div>
-                    <ul className="menu">
+                    <ul className={`menu ${isMenuOpen ? 'menu--active' : ''}`}>
                         {['home', 'about', 'projects', 'contact'].map((item) => (
                             <li
                                 key={item}
@@ -54,8 +60,14 @@ const Header = () => {
                             </li>
                         ))}
                     </ul>
-                    <button className="burger">
-                        <span></span><span></span><span></span>
+                    <button 
+                        className={`burger ${isMenuOpen ? 'burger--active' : ''}`}
+                        onClick={toggleMenu}
+                        aria-label="Toggle menu"
+                    >
+                        <span></span>
+                        <span></span>
+                        <span></span>
                     </button>
                 </header>
      );

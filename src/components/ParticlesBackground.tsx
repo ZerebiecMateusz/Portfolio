@@ -21,8 +21,7 @@ const ParticlesBackground = ({ id, showLinks, count }: ParticlesProps) => {
   }, []);
 
   if (!init) return null;
-  // Tworzymy unikalne ID: jeśli props 'id' istnieje, użyj go. 
-  // Jeśli nie, stwórz domyślne na podstawie typu (dust/network).
+
   const finalId = id || (showLinks ? "particles-network" : "particles-dust");
 
   return (
@@ -33,14 +32,14 @@ const ParticlesBackground = ({ id, showLinks, count }: ParticlesProps) => {
         fpsLimit: 120,
         particles: {
           number: { 
-            value: count, // Używamy propsa count
+            value: count, 
             density: { enable: true, area: 1800 } 
           },
           color: { 
             value: showLinks ? "#16f6ce" : ["#16f6ce", "#fb3816", "#ffffff"] 
           },
           links: {
-            enable: showLinks, // Używamy propsa showLinks
+            enable: showLinks, 
             distance: 150,
             color: "#06f60e",
             opacity: 0.8,
