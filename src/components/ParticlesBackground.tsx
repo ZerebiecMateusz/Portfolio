@@ -33,7 +33,7 @@ const ParticlesBackground = ({ id, showLinks, count }: ParticlesProps) => {
         particles: {
           number: { 
             value: count, 
-            density: { enable: true, area: 1800 } 
+            density: ({ enable: true, area: 1800 } as unknown as any)
           },
           color: { 
             value: showLinks ? "#16f6ce" : ["#16f6ce", "#fb3816", "#ffffff"] 
